@@ -22,26 +22,11 @@ import ohos.agp.components.Component;
 import ohos.agp.text.Font;
 import ohos.agp.text.RichTextBuilder;
 import ohos.agp.text.TextForm;
+import es.dmoral.toasty.CustomColor;
 import es.dmoral.toasty.LogUtil;
 import es.dmoral.toasty.Toasty;
+import es.dmoral.toasty.ToastyUtils;
 import es.dmoral.toastysample.ResourceTable;
-
-/**
- * This file is part of Toasty.
- *
- * Toasty is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Toasty is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Toasty.  If not, see <http://www.gnu.org/licenses/>.
- */
 
 public class MainAbilitySlice extends AbilitySlice {
     private static final String TAG = Toasty.class.getSimpleName();
@@ -124,12 +109,17 @@ public class MainAbilitySlice extends AbilitySlice {
                     @Override
                     public void onClick(Component component) {
                         LogUtil.info(TAG, "button_custom_config");
+                        CustomColor customColor = new CustomColor();
+                        customColor.setCustomTextColor(ToastyUtils.getColor(MainAbilitySlice.this,
+                                ResourceTable.Color_holo_green_light));
+                        customColor.setCustomTintColor(ToastyUtils.getColor(MainAbilitySlice.this,
+                                ResourceTable.Color_black));
                         Toasty.Config.getInstance()
                                 .allowQueue(false)
                                 .apply();
                         Toasty.custom(MainAbilitySlice.this, ResourceTable.String_custom_message,
-                                ResourceTable.Media_laptop512, ResourceTable.Color_black,
-                                ResourceTable.Color_holo_green_light, Toasty.LENGTH_LONG, true, true)
+                                ResourceTable.Media_laptop512, customColor, Toasty.LENGTH_LONG,
+                                true, true)
                                 .show();
                         Toasty.Config.reset(); // Use this if you want to use the configuration above only once
                     }

@@ -33,7 +33,7 @@ import java.io.IOException;
  * along with Toasty.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-final class ToastyUtils {
+public final class ToastyUtils {
     private static final String TAG = ToastyUtils.class.getSimpleName();
     private ToastyUtils() {
     }
