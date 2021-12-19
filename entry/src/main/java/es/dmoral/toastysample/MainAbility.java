@@ -16,11 +16,13 @@
 
 package es.dmoral.toastysample;
 
-import es.dmoral.toastysample.slice.MainAbilitySlice;
-
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
+import es.dmoral.toastysample.slice.MainAbilitySlice;
 
+/**
+ * Main Ability to display Toasty sample app.
+ */
 public class MainAbility extends Ability {
     @Override
     public void onStart(Intent intent) {

@@ -7,10 +7,13 @@ import ohos.agp.components.element.PixelMapElement;
 import ohos.agp.components.element.ShapeElement;
 import ohos.agp.components.element.VectorElement;
 import ohos.app.Context;
-import ohos.global.resource.*;
+import ohos.global.resource.NotExistException;
+import ohos.global.resource.RawFileEntry;
+import ohos.global.resource.Resource;
+import ohos.global.resource.ResourceManager;
+import ohos.global.resource.WrongTypeException;
 import ohos.media.image.ImageSource;
 import ohos.media.image.PixelMap;
-
 import java.io.IOException;
 
 /**
@@ -42,12 +45,11 @@ final class ToastyUtils {
         return toastFrame;
     }
 
-    static void setBackground(Component view, Element backgroundElement) {
-
+    public static void setBackground(Component view, Element backgroundElement) {
         view.setBackground(backgroundElement);
     }
 
-    static int getColor(Context context, int color) {
+    public static int getColor(Context context, int color) {
         try {
             return context.getResourceManager().getElement(color).getColor();
         } catch (IOException | NotExistException | WrongTypeException e) {
@@ -66,7 +68,7 @@ final class ToastyUtils {
     private static String getPathById(Context context, int resId) {
         String path = "";
         ResourceManager resourceManager = context.getResourceManager();
-        if (context != null && resourceManager != null) {
+        if (resourceManager != null) {
             try {
                 path = resourceManager.getMediaPath(resId);
 
@@ -91,7 +93,7 @@ final class ToastyUtils {
                 PixelMap pixelMap = imageSource.createPixelmap(decodingOptions);
                 pixelMapElement = new PixelMapElement(pixelMap);
             } catch (IOException e) {
-                LogUtil.error(TAG,"ImageException");
+                LogUtil.error(TAG, e.getMessage());
             }
         }
         return pixelMapElement;

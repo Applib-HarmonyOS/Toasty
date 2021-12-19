@@ -18,6 +18,9 @@ package es.dmoral.toastysample;
 
 import ohos.aafwk.ability.AbilityPackage;
 
+/**
+ * MyApplication class for Toasty sample app.
+ */
 public class MyApplication extends AbilityPackage {
     @Override
     public void onInitialize() {

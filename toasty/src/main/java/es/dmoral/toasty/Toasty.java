@@ -33,7 +33,7 @@ import ohos.global.configuration.Configuration;
  */
 
 public class Toasty {
-    private static  Font currentTypeface=Font.DEFAULT;
+    private static Font currentTypeface = Font.DEFAULT;
     private static int textSize = 16; // in SP
     private static boolean tintIcon = true;
     private static boolean allowQueue = true;
@@ -112,18 +112,27 @@ public class Toasty {
     }
 
 
-    public static ToastDialog warning( Context context, CharSequence message) {
+    public static ToastDialog warning(Context context, CharSequence message) {
         return warning(context, message, Toasty.LENGTH_SHORT, true);
     }
 
-    public static ToastDialog warning( Context context, int message, int duration) {
+    public static ToastDialog warning(Context context, int message, int duration) {
         return warning(context, context.getString(message), duration, true);
     }
 
-    public static ToastDialog warning( Context context, CharSequence message, int duration) {
+    public static ToastDialog warning(Context context, CharSequence message, int duration) {
         return warning(context, message, duration, true);
     }
 
+    /**
+     * Warning method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon custom icon
+     * @return warning Toast Dialog
+     */
     public static ToastDialog warning(Context context, int message, int duration,
                                       boolean withIcon) {
         return custom(context, context.getString(message), ToastyUtils.getVectorElement(context,
@@ -132,7 +141,16 @@ public class Toasty {
                 ResourceTable.Color_defaultTextColor), duration, withIcon, true);
     }
 
-    public static ToastDialog warning( Context context, CharSequence message, int duration,
+    /**
+     * warning method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon custom icon
+     * @return warning Toast Dialog
+     */
+    public static ToastDialog warning(Context context, CharSequence message, int duration,
                                        boolean withIcon) {
         return custom(context, message, ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_error_outline_white_24dp), ToastyUtils.getColor(context,
@@ -160,24 +178,54 @@ public class Toasty {
         return info(context, message, duration, true);
     }
 
+    /**
+     * Info method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon custom Icon
+     * @return Info Toast Dialog
+     */
     public static ToastDialog info(Context context, int message, int duration, boolean withIcon) {
         return custom(context, context.getString(message), ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_info_outline_white_24dp),
-                ToastyUtils.getColor(context, ResourceTable.Color_infoColor), ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_infoColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
                 duration, withIcon, true);
     }
 
+    /**
+     * Info method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon custom
+     * @return Info ToastDialog
+     */
     public static ToastDialog info(Context context, CharSequence message, int duration, boolean withIcon) {
         return custom(context, message, ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_info_outline_white_24dp),
-                ToastyUtils.getColor(context, ResourceTable.Color_infoColor), ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_infoColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
                 duration, withIcon, true);
     }
 
+    /**
+     * Info method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon customIcon
+     * @return Info ToastDialog
+     */
     public static ToastDialog info(Context context, RichTextBuilder message, int duration, boolean withIcon) {
         return custom(context, message, ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_info_outline_white_24dp),
-                ToastyUtils.getColor(context, ResourceTable.Color_infoColor), ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_infoColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
                 duration, withIcon, true);
     }
 
@@ -197,6 +245,15 @@ public class Toasty {
         return success(context, message, duration, true);
     }
 
+    /**
+     * success method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon Icon
+     * @return success ToastDialog
+     */
     public static ToastDialog success(Context context, int message, int duration, boolean withIcon) {
         return custom(context, context.getString(message), ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_check_white_24dp),
@@ -205,6 +262,15 @@ public class Toasty {
                 duration, withIcon, true);
     }
 
+    /**
+     * success method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon Icon
+     * @return success Toast Dialog
+     */
     public static ToastDialog success(Context context, CharSequence message, int duration, boolean withIcon) {
         return custom(context, message, ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_check_white_24dp),
@@ -229,22 +295,54 @@ public class Toasty {
         return error(context, message, duration, true);
     }
 
+    /**
+     * Error method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration custom duration
+     * @param withIcon Icon
+     * @return Error Toast Dialog
+     */
     public static ToastDialog error(Context context, int message, int duration, boolean withIcon) {
         return custom(context, context.getString(message), ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_clear_white_24dp),
-                ToastyUtils.getColor(context, ResourceTable.Color_errorColor), ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_errorColor), ToastyUtils.getColor(context,
+                        ResourceTable.Color_defaultTextColor),
                 duration, withIcon, true);
     }
 
+    /**
+     * Error method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param duration duration
+     * @param withIcon Icon
+     * @return Error ToastDialog
+     */
     public static ToastDialog error(Context context, CharSequence message,
                                     int duration, boolean withIcon) {
         return custom(context, message, ToastyUtils.getVectorElement(context,
                 ResourceTable.Graphic_ic_clear_white_24dp),
-                ToastyUtils.getColor(context, ResourceTable.Color_errorColor), ToastyUtils.getColor(context, ResourceTable.Color_defaultTextColor),
+                ToastyUtils.getColor(context, ResourceTable.Color_errorColor), ToastyUtils.getColor(context,
+                        ResourceTable.Color_defaultTextColor),
                 duration, withIcon, true);
     }
 
-    public static ToastDialog custom( Context context, int message, int iconRes,
+    /**
+     * Custom method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param iconRes custom iconRes
+     * @param tintColorRes custom tintColorRes
+     * @param duration custom duration
+     * @param withIcon custom withIcon
+     * @param shouldTint custom shouldTint
+     * @return Custom Toast Dialog
+     */
+    public static ToastDialog custom(Context context, int message, int iconRes,
                                       int tintColorRes, int duration,
                                       boolean withIcon, boolean shouldTint) {
         return custom(context, context.getString(message),
@@ -254,6 +352,18 @@ public class Toasty {
                 duration, withIcon, shouldTint);
     }
 
+    /**
+     * Custom method for ToastDialog.
+     *
+     * @param context context
+     * @param message custom message
+     * @param iconRes custom iconRes
+     * @param tintColorRes custom tintColorRes
+     * @param duration custom duration
+     * @param withIcon custom withIcon
+     * @param shouldTint custom shouldTint
+     * @return Custom Toast Dialog
+     */
     public static ToastDialog custom(Context context, CharSequence message, int iconRes,
                                      int tintColorRes, int duration,
                                      boolean withIcon, boolean shouldTint) {
@@ -263,6 +373,19 @@ public class Toasty {
                 duration, withIcon, shouldTint);
     }
 
+    /**
+     * Custom method for ToastDialog.
+     *
+     * @param context custom context
+     * @param message custom message
+     * @param iconRes custom iconRes
+     * @param tintColorRes custom tintColor
+     * @param textColorRes custom textColor
+     * @param duration custom duration
+     * @param withIcon custom withIcon
+     * @param shouldTint custom shouldTint
+     * @return Custom Toast Dialog
+     */
     public static ToastDialog custom(Context context, int message, int iconRes,
                                       int tintColorRes, int textColorRes, int duration,
                                       boolean withIcon, boolean shouldTint) {
@@ -272,6 +395,19 @@ public class Toasty {
                 duration, withIcon, shouldTint);
     }
 
+    /**
+     * Custom method for ToastDialog.
+     *
+     * @param context custom context
+     * @param message custom message
+     * @param icon custom icon
+     * @param tintColor custom tintColor
+     * @param textColor custom textColor
+     * @param duration custom duration
+     * @param withIcon custom withIcon
+     * @param shouldTint custom shouldTint
+     * @return Custom Toast Dialog
+     */
     public static ToastDialog custom(Context context, CharSequence message, Element icon,
                                       int tintColor, int textColor, int duration,
                                       boolean withIcon, boolean shouldTint) {
@@ -300,7 +436,7 @@ public class Toasty {
             if (icon instanceof VectorElement) {
                 toastIcon.setImageElement(icon);
             } else if (icon instanceof PixelMapElement) {
-                toastIcon.setPixelMap(((PixelMapElement)icon).getPixelMap());
+                toastIcon.setPixelMap(((PixelMapElement) icon).getPixelMap());
             }
         } else {
             toastIcon.setVisibility(Component.HIDE);
@@ -319,10 +455,23 @@ public class Toasty {
         }
         // Make sure to use default values for non-specified ones.
         currentToast.setAlignment(LayoutAlignment.HORIZONTAL_CENTER | LayoutAlignment.BOTTOM);
-        currentToast.setOffset(xOffset,50);
+        currentToast.setOffset(xOffset, 50);
         return currentToast;
     }
 
+    /**
+     * Custom method for ToastDialog.
+     *
+     * @param context custom context
+     * @param message custom message
+     * @param icon custom icon
+     * @param tintColor custom tintColor
+     * @param textColor custom textColor
+     * @param duration custom duration
+     * @param withIcon custom withIcon
+     * @param shouldTint custom shouldTint
+     * @return Custom Toast Dialog
+     */
     public static ToastDialog custom(Context context, RichTextBuilder message, Element icon,
                                      int tintColor, int textColor, int duration,
                                      boolean withIcon, boolean shouldTint) {
@@ -351,7 +500,7 @@ public class Toasty {
             if (icon instanceof VectorElement) {
                 toastIcon.setImageElement(icon);
             } else if (icon instanceof PixelMapElement) {
-                toastIcon.setPixelMap(((PixelMapElement)icon).getPixelMap());
+                toastIcon.setPixelMap(((PixelMapElement) icon).getPixelMap());
             }
         } else {
             toastIcon.setVisibility(Component.HIDE);
@@ -364,13 +513,14 @@ public class Toasty {
         currentToast.setComponent(toastLayout);
 
         if (!allowQueue) {
-            if (lastToast != null)
+            if (lastToast != null) {
                 lastToast.cancel();
-            lastToast = currentToast;
+                lastToast = currentToast;
+            }
         }
         // Make sure to use default values for non-specified ones.
         currentToast.setAlignment(LayoutAlignment.HORIZONTAL_CENTER | LayoutAlignment.BOTTOM);
-        currentToast.setOffset(xOffset,50);
+        currentToast.setOffset(xOffset, 50);
         return currentToast;
     }
 
@@ -440,7 +590,7 @@ public class Toasty {
             Toasty.isRTL = false;
         }
 
-        public Config setToastTypeface( Font typeface) {
+        public Config setToastTypeface(Font typeface) {
             this.typeface = typeface;
             return this;
         }
