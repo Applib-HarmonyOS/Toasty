@@ -1,0 +1,27 @@
+{
+  "app": {
+    "bundleName": "es.dmoral.toastysample.hmservice",
+    "vendor": "dmoral",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "es.dmoral.toasty",
+    "deviceType": [
+      "phone",
+      "tablet",
+      "tv",
+      "wearable",
+      "car"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "toasty",
+      "moduleType": "har"
+    }
+  }
+}

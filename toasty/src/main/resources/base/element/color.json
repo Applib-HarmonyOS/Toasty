@@ -1,0 +1,47 @@
+{
+  "color": [
+
+    {
+      "name": "defaultTextColor",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "errorColor",
+      "value": "#D50000"
+    },
+    {
+      "name": "infoColor",
+      "value": "#3F51B5"
+    },
+    {
+      "name": "successColor",
+      "value": "#388E3C"
+    },
+    {
+      "name": "warningColor",
+      "value": "#FFA900"
+    },
+    {
+      "name": "normalColor",
+      "value": "#353A3E"
+    },
+    {
+      "name": "black",
+      "value": "#000000"
+    },
+    {
+      "name": "holo_green_light",
+      "value": "#ff99cc00"
+    },
+    {
+      "name": "default_tint_color",
+      "value": "#80555555"
+    },
+    {
+      "name": "transparent",
+      "value": "#00000000"
+    }
+
+  ]
+
+}

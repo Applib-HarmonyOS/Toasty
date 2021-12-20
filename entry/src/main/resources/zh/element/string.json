@@ -1,0 +1,78 @@
+{
+  "string": [
+    {
+      "name": "entry_MainAbility",
+      "value": "entry_MainAbility"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "mainability_HelloWorld",
+      "value": "你好，世界"
+    },
+    {
+      "name": "normal_toast_with_icon",
+      "value": "NORMAL TOAST (WITH ICON)"
+    },
+    {
+      "name": "normal_toast_without_icon",
+      "value": "NORMAL TOAST (WITHOUT ICON)"
+    },
+    {
+      "name": "warning_toast",
+      "value": "WARNING TOAST"
+    },
+    {
+      "name": "info_toast",
+      "value": "INFO TOAST"
+    },
+    {
+      "name": "info_toast_with_formatting",
+      "value": "INFO TOAST WITH FORMATTING"
+    },
+    {
+      "name": "error_toast",
+      "value": "ERROR TOAST"
+    },
+    {
+      "name": "success_toast",
+      "value": "SUCCESS TOAST"
+    },
+    {
+      "name": "custom_configuration",
+      "value": "CUSTOM CONFIGURATION"
+    },
+    {
+      "name": "error_message",
+      "value": "This is an error toast."
+    },
+    {
+      "name": "success_message",
+      "value": "Success!"
+    },
+    {
+      "name": "info_message",
+      "value": "Here is some info for you."
+    },
+    {
+      "name": "warning_message",
+      "value": "Beware of the dog."
+    },
+    {
+      "name": "normal_message_without_icon",
+      "value": "Normal toast w/o icon"
+    },
+    {
+      "name": "normal_message_with_icon",
+      "value": "Normal toast w/ icon"
+    },
+    {
+      "name": "custom_message",
+      "value": "sudo kill -9 everyone"
+    }
+
+
+  ]
+}

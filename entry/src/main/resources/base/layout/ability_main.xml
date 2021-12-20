@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:ohos="http://schemas.huawei.com/res/ohos"
+             xmlns:tools="http://schemas.android.com/tools"
+             ohos:id="$+id:activity_main"
+             ohos:width="match_parent"
+             ohos:height="match_parent"
+             tools:context="es.dmoral.toastysample.MainActivity">
+
+    <DirectionalLayout
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:bottom_padding="$float:activity_vertical_margin"
+        ohos:left_padding="$float:activity_horizontal_margin"
+        ohos:right_padding="$float:activity_horizontal_margin"
+        ohos:top_padding="$float:activity_vertical_margin">
+
+        <Button
+            ohos:id="$+id:button_error_toast"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:error_toast"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            />
+
+        <Button
+            ohos:id="$+id:button_success_toast"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:success_toast"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="$+id:button_error_toast"
+            />
+
+
+
+        <Button
+            ohos:id="$+id:button_info_toast"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:info_toast"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="$+id:button_success_toast"
+            />
+
+        <Button
+            ohos:id="$+id:button_info_toast_with_formatting"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:info_toast_with_formatting"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="$+id:button_info_toast"
+            />
+
+        <Button
+            ohos:id="$+id:button_warning_toast"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:warning_toast"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="$+id:button_info_toast_with_formatting"
+            />
+        <Button
+            ohos:id="$+id:button_normal_toast_wo_icon"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:normal_toast_without_icon"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="$+id:button_warning_toast"
+            />
+
+
+        <Button
+            ohos:id="$+id:button_normal_toast_w_icon"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:normal_toast_with_icon"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="@+id/button_normal_toast_wo_icon"
+            />
+
+        <Button
+            ohos:id="$+id:button_custom_config"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:text="$string:custom_configuration"
+            ohos:text_alignment="center"
+            ohos:left_margin="5vp"
+            ohos:right_margin="5vp"
+            ohos:text_size="$float:activity_horizontal_margin"
+            ohos:top_padding="10vp"
+            ohos:bottom_padding="10vp"
+            ohos:top_margin="10vp"
+            ohos:background_element="#D3D3D3"
+            ohos:below="$+id:button_normal_toast_w_icon"
+            />
+
+
+
+    </DirectionalLayout>
+</ScrollView>
+

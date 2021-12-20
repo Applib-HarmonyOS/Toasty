@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:id="$+id:toast_root"
+    ohos:orientation="horizontal"
+    ohos:height="match_content"
+    ohos:width="match_content"
+    ohos:padding="6vp"
+    ohos:background_element="$color:transparent">
+
+    <Image
+        ohos:id="$+id:toast_icon"
+        ohos:width="24vp"
+        ohos:height="24vp"
+        ohos:end_margin="8vp"
+        ohos:right_margin="8vp"
+        ohos:left_margin="8vp"
+        ohos:scale_mode="center"
+        />
+
+    <Text
+        ohos:id="$+id:toast_text"
+        ohos:width="match_content"
+        ohos:height="match_content"
+        ohos:end_margin="8vp"
+        ohos:right_margin="8vp"
+        ohos:left_margin="8vp"/>
+
+</DirectionalLayout>

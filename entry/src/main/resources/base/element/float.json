@@ -1,0 +1,17 @@
+{
+  "float": [
+    {
+      "name": "float_1",
+      "value": "30.6"
+    },
+    {
+      "name": "activity_horizontal_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "activity_vertical_margin",
+      "value": "16vp"
+    }
+
+  ]
+}
