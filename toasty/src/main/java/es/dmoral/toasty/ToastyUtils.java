@@ -49,6 +49,13 @@ public final class ToastyUtils {
         view.setBackground(backgroundElement);
     }
 
+    /**
+     * Returning int color value from color resource id.
+     *
+     * @param context context
+     * @param color color resource id
+     * @return int color value
+     */
     public static int getColor(Context context, int color) {
         try {
             return context.getResourceManager().getElement(color).getColor();
@@ -58,6 +65,13 @@ public final class ToastyUtils {
         return 0;
     }
 
+    /**
+     * Returning VectorElement from Element resource id.
+     *
+     * @param context context
+     * @param id element resource id
+     * @return VectorElement instance
+     */
     public static VectorElement getVectorElement(Context context, int id) {
         if (context != null) {
             return new VectorElement(context, id);
@@ -79,6 +93,13 @@ public final class ToastyUtils {
         return path;
     }
 
+    /**
+     * Returning VectorElement from Element resource id.
+     *
+     * @param context context
+     * @param resId element resource id
+     * @return PixelMapElement instance
+     */
     public static PixelMapElement getPixelMapElement(Context context, int resId) {
         String path = getPathById(context, resId);
         PixelMapElement pixelMapElement = null;

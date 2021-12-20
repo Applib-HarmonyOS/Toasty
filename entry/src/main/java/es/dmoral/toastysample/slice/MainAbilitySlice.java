@@ -28,6 +28,9 @@ import es.dmoral.toasty.Toasty;
 import es.dmoral.toasty.ToastyUtils;
 import es.dmoral.toastysample.ResourceTable;
 
+/**
+ * MainAbilitySlice class for Toasty sample app.
+ */
 public class MainAbilitySlice extends AbilitySlice {
     private static final String TAG = Toasty.class.getSimpleName();
 

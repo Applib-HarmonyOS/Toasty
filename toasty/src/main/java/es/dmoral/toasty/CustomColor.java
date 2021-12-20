@@ -17,7 +17,7 @@
 package es.dmoral.toasty;
 
 /**
- * Custom color model class
+ * Custom color model class.
  */
 public class CustomColor {
     private int customTintColor;
