@@ -580,14 +580,14 @@ public class Toasty {
      * Config class for Toasty.
      */
     public static class Config {
-        private static Font typeface = Toasty.currentTypeface;
-        private static int textSize = Toasty.textSize;
-        private static boolean tintIcon = Toasty.tintIcon;
-        private static boolean allowQueue = true;
-        private static int toastGravity = Toasty.toastGravity;
-        private static int offsetX = Toasty.offsetX;
-        private static int offsetY = Toasty.offsetY;
-        private static boolean isRtl = false;
+        private static Font sTypeface = Toasty.currentTypeface;
+        private static int sTextSize = Toasty.textSize;
+        private static boolean sTintIcon = Toasty.tintIcon;
+        private static boolean sAllowQueue = true;
+        private static int sToastGravity = Toasty.toastGravity;
+        private static int sOffsetX = Toasty.offsetX;
+        private static int sOffsetY = Toasty.offsetY;
+        private static boolean sIsRtl = false;
 
         private Config() {
             // avoiding instantiation
@@ -612,22 +612,22 @@ public class Toasty {
         }
 
         public Config setToastTypeface(Font typeface) {
-            this.typeface = typeface;
+            sTypeface = typeface;
             return this;
         }
 
         public Config setTextSize(int sizeInSp) {
-            this.textSize = sizeInSp;
+            sTextSize = sizeInSp;
             return this;
         }
 
         public Config tintIcon(boolean tintIcon) {
-            this.tintIcon = tintIcon;
+            sTintIcon = tintIcon;
             return this;
         }
 
         public Config allowQueue(boolean allowQueue) {
-            this.allowQueue = allowQueue;
+            sAllowQueue = allowQueue;
             return this;
         }
 
@@ -640,19 +640,19 @@ public class Toasty {
          * @return Config instance
          */
         public Config setGravity(int gravity, int offsetX, int offsetY) {
-            this.toastGravity = gravity;
-            this.offsetX = offsetX;
-            this.offsetY = offsetY;
+            sToastGravity = gravity;
+            sOffsetX = offsetX;
+            sOffsetY = offsetY;
             return this;
         }
 
         public Config setGravity(int gravity) {
-            this.toastGravity = gravity;
+            sToastGravity = gravity;
             return this;
         }
 
         public Config setRtl(boolean isRtl) {
-            this.isRtl = isRtl;
+            sIsRtl = isRtl;
             return this;
         }
 
@@ -660,14 +660,14 @@ public class Toasty {
          * apply() for Toasty.
          */
         public void apply() {
-            Toasty.currentTypeface = typeface;
-            Toasty.textSize = textSize;
-            Toasty.tintIcon = tintIcon;
-            Toasty.allowQueue = allowQueue;
-            Toasty.toastGravity = toastGravity;
-            Toasty.offsetX = offsetX;
-            Toasty.offsetY = offsetY;
-            Toasty.isRtl = isRtl;
+            Toasty.currentTypeface = sTypeface;
+            Toasty.textSize = sTextSize;
+            Toasty.tintIcon = sTintIcon;
+            Toasty.allowQueue = sAllowQueue;
+            Toasty.toastGravity = sToastGravity;
+            Toasty.offsetX = sOffsetX;
+            Toasty.offsetY = sOffsetY;
+            Toasty.isRtl = sIsRtl;
         }
     }
 }
