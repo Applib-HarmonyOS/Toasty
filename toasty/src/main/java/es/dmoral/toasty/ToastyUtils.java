@@ -30,11 +30,12 @@ import java.io.IOException;
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Toasty.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Toasty. If not, see http://www.gnu.org/licenses/
  */
 
 public final class ToastyUtils {
     private static final String TAG = ToastyUtils.class.getSimpleName();
+
     private ToastyUtils() {
     }
 
