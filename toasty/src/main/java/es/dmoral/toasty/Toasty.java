@@ -593,10 +593,6 @@ public class Toasty {
             // avoiding instantiation
         }
 
-        public static Config getInstance() {
-            return new Config();
-        }
-
         /**
          * reset() for Toasty.
          */
@@ -611,24 +607,20 @@ public class Toasty {
             Toasty.isRtl = false;
         }
 
-        public Config setToastTypeface(Font typeface) {
+        public static void setToastTypeface(Font typeface) {
             sTypeface = typeface;
-            return this;
         }
 
-        public Config setTextSize(int sizeInSp) {
+        public static void setTextSize(int sizeInSp) {
             sTextSize = sizeInSp;
-            return this;
         }
 
-        public Config tintIcon(boolean tintIcon) {
+        public static void tintIcon(boolean tintIcon) {
             sTintIcon = tintIcon;
-            return this;
         }
 
-        public Config allowQueue(boolean allowQueue) {
+        public static void allowQueue(boolean allowQueue) {
             sAllowQueue = allowQueue;
-            return this;
         }
 
         /**
@@ -637,29 +629,25 @@ public class Toasty {
          * @param gravity toastGravity
          * @param offsetX offsetX
          * @param offsetY offsetY
-         * @return Config instance
          */
-        public Config setGravity(int gravity, int offsetX, int offsetY) {
+        public static void setGravity(int gravity, int offsetX, int offsetY) {
             sToastGravity = gravity;
             sOffsetX = offsetX;
             sOffsetY = offsetY;
-            return this;
         }
 
-        public Config setGravity(int gravity) {
+        public static void setGravity(int gravity) {
             sToastGravity = gravity;
-            return this;
         }
 
-        public Config setRtl(boolean isRtl) {
+        public static void setRtl(boolean isRtl) {
             sIsRtl = isRtl;
-            return this;
         }
 
         /**
          * apply() for Toasty.
          */
-        public void apply() {
+        public static void apply() {
             Toasty.currentTypeface = sTypeface;
             Toasty.textSize = sTextSize;
             Toasty.tintIcon = sTintIcon;
