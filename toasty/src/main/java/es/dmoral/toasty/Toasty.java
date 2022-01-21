@@ -1,6 +1,7 @@
 package es.dmoral.toasty;
 
 import ohos.agp.components.Component;
+import ohos.agp.components.DirectionalLayout;
 import ohos.agp.components.Image;
 import ohos.agp.components.LayoutScatter;
 import ohos.agp.components.Text;
@@ -17,19 +18,16 @@ import ohos.global.configuration.Configuration;
 
 /**
  * This file is part of Toasty.
- * <p>
  * Toasty is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * <p>
  * Toasty is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p>
  * You should have received a copy of the GNU General Public License
- * along with Toasty.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Toasty. If not, see http://www.gnu.org/licenses/
  */
 
 public class Toasty {
@@ -38,10 +36,9 @@ public class Toasty {
     private static boolean tintIcon = true;
     private static boolean allowQueue = true;
     private static int toastGravity = -1;
-    private static int xOffset = -1;
-    private static int yOffset = -1;
-    private static boolean supportDarkTheme = true;
-    private static boolean isRTL = false;
+    private static int offsetX = -1;
+    private static int offsetY = -1;
+    private static boolean isRtl = false;
 
     private static ToastDialog lastToast = null;
 
@@ -422,6 +419,8 @@ public class Toasty {
         LayoutScatter layoutScatter = LayoutScatter.getInstance(context);
         final Component toastLayout = layoutScatter.parse(ResourceTable.Layout_toast_layout,
                 null, false);
+        final DirectionalLayout toastRoot = (DirectionalLayout) toastLayout.findComponentById(
+                ResourceTable.Id_toast_root);
         final Image toastIcon = (Image) toastLayout.findComponentById(ResourceTable.Id_toast_icon);
         final Text toastTextView = (Text) toastLayout.findComponentById(ResourceTable.Id_toast_text);
         Element drawableFrame = null;
@@ -437,6 +436,9 @@ public class Toasty {
         if (withIcon) {
             if (icon == null) {
                 throw new IllegalArgumentException("Avoid passing 'icon' as null if 'withIcon' is set to true");
+            }
+            if (isRtl) {
+                toastRoot.setLayoutDirection(Component.LayoutDirection.RTL);
             }
             if (icon instanceof VectorElement) {
                 toastIcon.setImageElement(icon);
@@ -454,13 +456,14 @@ public class Toasty {
         currentToast.setComponent(toastLayout);
 
         if (!allowQueue) {
-            if (lastToast != null)
+            if (lastToast != null) {
                 lastToast.cancel();
+            }
             lastToast = currentToast;
         }
         // Make sure to use default values for non-specified ones.
         currentToast.setAlignment(LayoutAlignment.HORIZONTAL_CENTER | LayoutAlignment.BOTTOM);
-        currentToast.setOffset(xOffset, 50);
+        currentToast.setOffset(offsetX, 50);
         return currentToast;
     }
 
@@ -485,9 +488,16 @@ public class Toasty {
         LayoutScatter layoutScatter = LayoutScatter.getInstance(context);
         final Component toastLayout = layoutScatter.parse(ResourceTable.Layout_toast_layout,
                 null, false);
+        final DirectionalLayout toastRoot = (DirectionalLayout) toastLayout.findComponentById(
+                ResourceTable.Id_toast_root);
         final Image toastIcon = (Image) toastLayout.findComponentById(ResourceTable.Id_toast_icon);
         final Text toastTextView = (Text) toastLayout.findComponentById(ResourceTable.Id_toast_text);
         Element drawableFrame = null;
+
+        toastTextView.setRichText(message.build());
+        toastTextView.setTextColor(new Color(customColor.getCustomTextColor()));
+        toastTextView.setFont(currentTypeface);
+        toastTextView.setTextSize(textSize, Text.TextSizeType.VP);
 
         if (shouldTint) {
             drawableFrame = ToastyUtils.tintDrawableFrame(customColor.getCustomTintColor());
@@ -496,10 +506,14 @@ public class Toasty {
             drawableFrame = ToastyUtils.tintDrawableFrame(
                     ToastyUtils.getColor(context, ResourceTable.Color_default_tint_color));
         }
+
         ToastyUtils.setBackground(toastLayout, drawableFrame);
         if (withIcon) {
             if (icon == null) {
                 throw new IllegalArgumentException("Avoid passing 'icon' as null if 'withIcon' is set to true");
+            }
+            if (isRtl) {
+                toastRoot.setLayoutDirection(Component.LayoutDirection.RTL);
             }
             if (icon instanceof VectorElement) {
                 toastIcon.setImageElement(icon);
@@ -509,10 +523,6 @@ public class Toasty {
         } else {
             toastIcon.setVisibility(Component.HIDE);
         }
-        toastTextView.setRichText(message.build());
-        toastTextView.setTextColor(new Color(customColor.getCustomTextColor()));
-        toastTextView.setFont(currentTypeface);
-        toastTextView.setTextSize(textSize, Text.TextSizeType.VP);
 
         currentToast.setComponent(toastLayout);
 
@@ -522,7 +532,7 @@ public class Toasty {
         }
         // Make sure to use default values for non-specified ones.
         currentToast.setAlignment(LayoutAlignment.HORIZONTAL_CENTER | LayoutAlignment.BOTTOM);
-        currentToast.setOffset(xOffset, 50);
+        currentToast.setOffset(offsetX, 50);
         return currentToast;
     }
 
@@ -563,89 +573,86 @@ public class Toasty {
         return custom(context, message, icon, customColor, duration, withIcon, true);
     }
 
+    /**
+     * Config class for Toasty.
+     */
     public static class Config {
-        private Font typeface = Toasty.currentTypeface;
-        private int textSize = Toasty.textSize;
-        private boolean tintIcon = Toasty.tintIcon;
-        private boolean allowQueue = true;
-        private int toastGravity = Toasty.toastGravity;
-        private int xOffset = Toasty.xOffset;
-        private int yOffset = Toasty.yOffset;
-        private boolean supportDarkTheme = true;
-        private boolean isRTL = false;
+        private static Font sTypeface = Toasty.currentTypeface;
+        private static int sTextSize = Toasty.textSize;
+        private static boolean sTintIcon = Toasty.tintIcon;
+        private static boolean sAllowQueue = true;
+        private static int sToastGravity = Toasty.toastGravity;
+        private static int sOffsetX = Toasty.offsetX;
+        private static int sOffsetY = Toasty.offsetY;
+        private static boolean sIsRtl = false;
 
         private Config() {
             // avoiding instantiation
         }
 
-        public static Config getInstance() {
-            return new Config();
-        }
-
+        /**
+         * reset() for Toasty.
+         */
         public static void reset() {
             Toasty.currentTypeface = Font.DEFAULT;
             Toasty.textSize = 16;
             Toasty.tintIcon = true;
             Toasty.allowQueue = true;
             Toasty.toastGravity = -1;
-            Toasty.xOffset = -1;
-            Toasty.yOffset = -1;
-            Toasty.supportDarkTheme = true;
-            Toasty.isRTL = false;
+            Toasty.offsetX = -1;
+            Toasty.offsetY = -1;
+            Toasty.isRtl = false;
         }
 
-        public Config setToastTypeface(Font typeface) {
-            this.typeface = typeface;
-            return this;
+        public static void setToastTypeface(Font typeface) {
+            sTypeface = typeface;
         }
 
-        public Config setTextSize(int sizeInSp) {
-            this.textSize = sizeInSp;
-            return this;
+        public static void setTextSize(int sizeInSp) {
+            sTextSize = sizeInSp;
         }
 
-        public Config tintIcon(boolean tintIcon) {
-            this.tintIcon = tintIcon;
-            return this;
+        public static void tintIcon(boolean tintIcon) {
+            sTintIcon = tintIcon;
         }
 
-        public Config allowQueue(boolean allowQueue) {
-            this.allowQueue = allowQueue;
-            return this;
+        public static void allowQueue(boolean allowQueue) {
+            sAllowQueue = allowQueue;
         }
 
-        public Config setGravity(int gravity, int xOffset, int yOffset) {
-            this.toastGravity = gravity;
-            this.xOffset = xOffset;
-            this.yOffset = yOffset;
-            return this;
+        /**
+         * SetGravity for ToastDialog.
+         *
+         * @param gravity toastGravity
+         * @param offsetX offsetX
+         * @param offsetY offsetY
+         */
+        public static void setGravity(int gravity, int offsetX, int offsetY) {
+            sToastGravity = gravity;
+            sOffsetX = offsetX;
+            sOffsetY = offsetY;
         }
 
-        public Config setGravity(int gravity) {
-            this.toastGravity = gravity;
-            return this;
+        public static void setGravity(int gravity) {
+            sToastGravity = gravity;
         }
 
-        public Config supportDarkTheme(boolean supportDarkTheme) {
-            this.supportDarkTheme = supportDarkTheme;
-            return this;
+        public static void setRtl(boolean isRtl) {
+            sIsRtl = isRtl;
         }
 
-        public Config setRTL(boolean isRTL) {
-            this.isRTL = isRTL;
-            return this;
-        }
-
-        public void apply() {
-            Toasty.currentTypeface = typeface;
-            Toasty.textSize = textSize;
-            Toasty.tintIcon = tintIcon;
-            Toasty.allowQueue = allowQueue;
-            Toasty.toastGravity = toastGravity;
-            Toasty.xOffset = xOffset;
-            Toasty.yOffset = yOffset;
-            Toasty.supportDarkTheme = supportDarkTheme;
-            Toasty.isRTL = isRTL;
+        /**
+         * apply() for Toasty.
+         */
+        public static void apply() {
+            Toasty.currentTypeface = sTypeface;
+            Toasty.textSize = sTextSize;
+            Toasty.tintIcon = sTintIcon;
+            Toasty.allowQueue = sAllowQueue;
+            Toasty.toastGravity = sToastGravity;
+            Toasty.offsetX = sOffsetX;
+            Toasty.offsetY = sOffsetY;
+            Toasty.isRtl = sIsRtl;
         }
     }
 }

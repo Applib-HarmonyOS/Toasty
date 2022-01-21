@@ -117,9 +117,9 @@ public class MainAbilitySlice extends AbilitySlice {
                                 ResourceTable.Color_holo_green_light));
                         customColor.setCustomTintColor(ToastyUtils.getColor(MainAbilitySlice.this,
                                 ResourceTable.Color_black));
-                        Toasty.Config.getInstance()
-                                .allowQueue(false)
-                                .apply();
+                        Toasty.Config.setRtl(true);
+                        Toasty.Config.allowQueue(false);
+                        Toasty.Config.apply();
                         Toasty.custom(MainAbilitySlice.this, ResourceTable.String_custom_message,
                                 ResourceTable.Media_laptop512, customColor, Toasty.LENGTH_LONG,
                                 true, true)

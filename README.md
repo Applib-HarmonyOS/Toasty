@@ -1,5 +1,7 @@
 # Toasty
 
+[![.github/workflows/main.yml](https://github.com/applibgroup/Toasty/actions/workflows/main.yml/badge.svg)](https://github.com/applibgroup/Toasty/actions/workflows/main.yml)
+
 ## Introduction
 
 The usual Toast, but with steroids.
@@ -30,11 +32,11 @@ In order to use the library, add the following line to your **root** gradle file
 1. For using Toasty module in sample app, include the source code and add the below dependencies in entry/build.gradle to generate hap/support.har.
 ```
     dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
-    implementation project(path: ':toasty')
-    testImplementation 'junit:junit:4.13.1'
-    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.200'
-}
+        implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+        implementation project(path: ':toasty')
+        testImplementation 'junit:junit:4.13.1'
+        ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.200'
+    }
 ```
 
 2. For using Toasty in separate application using har file, add the har file in the entry/libs folder and add the dependencies in entry/build.gradle file.
@@ -48,7 +50,7 @@ In order to use the library, add the following line to your **root** gradle file
 3. For using Toasty from a remote repository in separate application, add the below dependencies in entry/build.gradle file.
 ```
     dependencies {
-        implementation 'dev.applibgroup:toasty:1.0.0'
+        implementation 'dev.applibgroup:toasty:1.0.1'
         testImplementation 'junit:junit:4.13.1'
     }
 ```
